@@ -1,220 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Utkarsh Anand — Data Analyst Portfolio</title>
+  <meta name="description" content="Portfolio of Utkarsh Anand — Data Analyst. Python, SQL, Power BI, ML projects and contact." />
 
-<title>Utkarsh Anand | Data Analyst Portfolio</title>
+  <style>
+    :root{
+      --bg:#f6f7f9;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#111827;
+      --maxw:980px;
+      --radius:10px;
+      --pad:20px;
+      font-synthesis: none;
+    }
 
-<style>
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding-bottom:40px;
+    }
 
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#f5f5f5;
-color:#333;
-}
+    /* Header / Nav */
+    header.site-hero{
+      background:linear-gradient(180deg,#0f1724 0%, #111827 60%);
+      color:#fff;
+      padding:56px 20px;
+      text-align:center;
+    }
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+    nav.topnav{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      padding:14px 0;
+      background:rgba(0,0,0,0.02);
+      position:sticky;
+      top:0;
+      z-index:50;
+      border-bottom:1px solid rgba(15,23,42,0.04);
+      backdrop-filter: blur(4px);
+    }
+    nav.topnav a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+      padding:6px 10px;
+      border-radius:6px;
+    }
+    nav.topnav a:hover{background:#eef2ff;color:#111827}
 
-nav{
-background:#111;
-color:white;
-padding:15px;
-text-align:center;
-position:sticky;
-top:0;
-}
+    header .title{font-size:28px;margin:6px 0 6px;font-weight:700}
+    header .subtitle{color:#d1d5db;margin:0 0 14px}
+    header .lead{max-width:780px;margin:0 auto;color:#e6eef8;font-size:15px}
 
-nav a{
-color:white;
-margin:0 15px;
-text-decoration:none;
-font-weight:bold;
-}
+    /* Sections */
+    section{padding:36px 0}
+    h2.section-title{font-size:20px;margin:0 0 14px;border-bottom:2px solid #e6e9ee;padding-bottom:10px}
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:0 6px 18px rgba(16,24,40,0.06);
+      padding:var(--pad);
+      margin:12px 0;
+    }
 
-header{
-background:#222;
-color:white;
-padding:60px 20px;
-text-align:center;
-}
+    /* About / Grid */
+    .two-col{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
+    @media (max-width:880px){.two-col{grid-template-columns:1fr}}
 
-section{
-max-width:900px;
-margin:auto;
-padding:40px 20px;
-}
+    /* Skills list */
+    .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .skill-chip{background:#f3f4f6;padding:8px 10px;border-radius:8px;font-weight:600;color:var(--muted);}
 
-h2{
-border-bottom:2px solid #ddd;
-padding-bottom:10px;
-}
+    /* Project cards */
+    .projects-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media (max-width:880px){.projects-list{grid-template-columns:1fr}}
+    .project{
+      padding:18px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);
+      border:1px solid rgba(15,23,42,0.03);
+    }
+    .project h3{margin:0 0 8px;font-size:16px}
+    .project p{margin:0 0 10px;color:var(--muted);font-size:14px}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:10px}
 
-.project{
-background:white;
-padding:20px;
-margin:20px 0;
-border-radius:8px;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
-}
+    .btn{
+      display:inline-block;background:#111827;color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:700;font-size:13px;
+      box-shadow:0 6px 14px rgba(17,24,39,0.12);
+    }
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(17,24,39,0.06);box-shadow:none}
 
-.button{
-display:inline-block;
-padding:10px 20px;
-background:#333;
-color:white;
-text-decoration:none;
-border-radius:5px;
-margin-top:10px;
-}
+    /* Footer */
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px;padding:24px 0}
 
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:20px;
-}
-
-</style>
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .spaced{margin-top:12px}
+    .center{text-align:center}
+    code.inline{background:#111827;color:#fff;padding:3px 6px;border-radius:6px;font-size:13px}
+    /* smooth scroll */
+    html{scroll-behavior:smooth}
+  </style>
 </head>
-
 <body>
 
-<nav>
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#github">GitHub</a>
-<a href="#resume">Resume</a>
-<a href="#contact">Contact</a>
-</nav>
+  <!-- NAV -->
+  <nav class="topnav wrap" aria-label="Main navigation">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#github">GitHub</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<header id="home">
-<h1>Utkarsh Anand</h1>
-<p>Data Analyst | Python | SQL | Power BI</p>
-<p>I analyze data and build machine learning models to extract insights and solve real-world problems.</p>
-</header>
+  <!-- HERO -->
+  <header id="home" class="site-hero">
+    <div class="wrap">
+      <div class="title">Utkarsh Anand</div>
+      <div class="subtitle">Data Analyst — Python · SQL · Power BI</div>
+      <p class="lead">
+        I help teams turn messy data into clear decisions. I build reproducible analyses, dashboards and predictive models to answer business questions and drive measurable outcomes.
+        My toolkit includes Python (Pandas & scikit-learn), SQL, Power BI and Excel.
+      </p>
+      <div style="margin-top:18px">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn ghost" href="#contact" style="margin-left:10px">Contact Me</a>
+      </div>
+    </div>
+  </header>
 
-<section id="about">
+  <main class="wrap">
 
-<h2>About Me</h2>
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title" class="section-title">About Me</h2>
+      <div class="two-col">
+        <div>
+          <div class="card">
+            <p style="margin-top:0">
+              I am a data analytics professional with hands-on experience in extracting insights from structured and unstructured datasets, building predictive models, and creating dashboards that communicate impact to stakeholders.
+            </p>
 
-<p>
-I am a data analyst with experience in Python, SQL, Excel, and Power BI. I enjoy analyzing data, building predictive models, and creating visualizations that support business decision making.
-</p>
+            <p style="margin:10px 0 0"><strong>Typical workflow:</strong> data cleaning → exploratory analysis → feature engineering → model building → visualization & deployment.</p>
 
-<p><strong>Education:</strong> B.Tech Graduate</p>
+            <div style="margin-top:12px">
+              <strong>Education</strong>
+              <p class="muted" style="margin:6px 0 0">Bachelor's Degree</p>
+            </div>
 
-<p><strong>Career Objective:</strong> To apply data analytics and machine learning techniques to solve real-world problems and generate actionable insights.</p>
+            <div style="margin-top:12px">
+              <strong>Professional training</strong>
+              <p class="muted" style="margin:6px 0 0">Data Science with AI — Internshala Trainings</p>
+            </div>
 
-<p><strong>Areas of Interest:</strong> Data Analytics, Machine Learning, Data Visualization</p>
+            <div style="margin-top:12px">
+              <strong>Career objective</strong>
+              <p class="muted" style="margin:6px 0 0">Apply analytics & ML to solve business problems and deliver measurable outcomes.</p>
+            </div>
+          </div>
+        </div>
 
-</section>
+        <aside>
+          <div class="card">
+            <h3 style="margin:0 0 8px">Areas of interest</h3>
+            <p class="muted" style="margin:0 0 12px">Data Analytics · Machine Learning · Business Intelligence · Data Visualization</p>
 
-<section id="skills">
+            <h3 style="margin:12px 0 8px">Quick contact</h3>
+            <p style="margin:0"><strong>Email</strong></p>
+            <p class="muted" style="margin:6px 0 0"><a href="mailto:utk108@icloud.com">utk108@icloud.com</a></p>
 
-<h2>Technical Skills</h2>
+            <p style="margin-top:12px"><strong>GitHub</strong></p>
+            <p class="muted" style="margin:6px 0 0"><a href="https://github.com/utkarsh-data-enthusiast" target="_blank" rel="noopener">github.com/utkarsh-data-enthusiast</a></p>
 
-<p><strong>Programming Languages</strong></p>
-<ul>
-<li>Python</li>
-<li>SQL</li>
-</ul>
+            <p style="margin-top:12px"><strong>LinkedIn</strong></p>
+            <p class="muted" style="margin:6px 0 0">Add your LinkedIn profile URL here</p>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-<p><strong>Libraries / Frameworks</strong></p>
-<ul>
-<li>Pandas</li>
-<li>NumPy</li>
-<li>Scikit-learn</li>
-</ul>
+    <!-- SKILLS -->
+    <section id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title" class="section-title">Technical Skills</h2>
 
-<p><strong>Databases</strong></p>
-<ul>
-<li>MySQL</li>
-</ul>
+      <div class="card">
+        <div style="display:flex;gap:24px;flex-wrap:wrap">
+          <div style="flex:1;min-width:220px">
+            <p style="margin:0 0 6px"><strong>Programming</strong></p>
+            <div class="skills-grid" style="margin-top:8px">
+              <div class="skill-chip">Python</div>
+              <div class="skill-chip">SQL</div>
+              <div class="skill-chip">Excel</div>
+              <div class="skill-chip">Jupyter</div>
+            </div>
+          </div>
 
-<p><strong>Tools</strong></p>
-<ul>
-<li>Power BI</li>
-<li>Excel</li>
-<li>Jupyter Notebook</li>
-</ul>
+          <div style="flex:1;min-width:220px">
+            <p style="margin:0 0 6px"><strong>Libraries & ML</strong></p>
+            <div class="skills-grid" style="margin-top:8px">
+              <div class="skill-chip">Pandas</div>
+              <div class="skill-chip">NumPy</div>
+              <div class="skill-chip">Scikit-learn</div>
+              <div class="skill-chip">Matplotlib</div>
+            </div>
+          </div>
 
-</section>
+          <div style="flex:1;min-width:220px">
+            <p style="margin:0 0 6px"><strong>Tools & BI</strong></p>
+            <div class="skills-grid" style="margin-top:8px">
+              <div class="skill-chip">Power BI</div>
+              <div class="skill-chip">MySQL</div>
+              <div class="skill-chip">Git & GitHub</div>
+              <div class="skill-chip">Data cleaning</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="projects">
+    <!-- PROJECTS -->
+    <section id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title" class="section-title">Selected Projects</h2>
 
-<h2>Projects</h2>
+      <div class="projects-list">
+        <!-- Project 1 -->
+        <article class="project">
+          <h3>Customer Churn Prediction</h3>
+          <p class="muted">Predictive modelling to identify customers at risk of leaving — enabling targeted retention actions.</p>
+          <p class="meta"><strong>Tech:</strong> Python • Pandas • Scikit-learn • Feature engineering • Model evaluation</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <!-- Replace '#' with direct repo URL: e.g. https://github.com/utkarsh-data-enthusiast/customer-churn-prediction -->
+            <a class="btn" href="https://github.com/utkarsh-data-enthusiast" target="_blank" rel="noopener">View on GitHub</a>
+            <a class="btn ghost" href="#" target="_blank" rel="noopener">Live / Demo (optional)</a>
+          </div>
+        </article>
 
-<div class="project">
-<h3>Customer Churn Prediction</h3>
-<p>Machine learning model predicting telecom customer churn.</p>
-<p><strong>Technologies:</strong> Python, Pandas, Scikit-learn</p>
-<a class="button" href="https://github.com/utkarsh-data-enthusiast" target="_blank">View on GitHub</a>
-</div>
+        <!-- Project 2 -->
+        <article class="project">
+          <h3>Airbnb Price Prediction</h3>
+          <p class="muted">Regression model to estimate listing prices using feature engineering and model comparison.</p>
+          <p class="meta"><strong>Tech:</strong> Python • Pandas • Regression • Cross-validation</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn" href="https://github.com/utkarsh-data-enthusiast" target="_blank" rel="noopener">View on GitHub</a>
+            <a class="btn ghost" href="#" target="_blank" rel="noopener">Notebook / Demo</a>
+          </div>
+        </article>
 
-<div class="project">
-<h3>Airbnb Price Prediction</h3>
-<p>Regression model predicting Airbnb listing prices.</p>
-<p><strong>Technologies:</strong> Python, Pandas, Machine Learning</p>
-<a class="button" href="https://github.com/utkarsh-data-enthusiast" target="_blank">View on GitHub</a>
-</div>
+        <!-- Project 3 -->
+        <article class="project">
+          <h3>Electric Vehicle Data Analysis</h3>
+          <p class="muted">Exploratory analysis of EV adoption trends and regional comparisons with visual insights for stakeholders.</p>
+          <p class="meta"><strong>Tech:</strong> Python • Data Visualization • EDA</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn" href="https://github.com/utkarsh-data-enthusiast" target="_blank" rel="noopener">View on GitHub</a>
+            <a class="btn ghost" href="#" target="_blank" rel="noopener">Charts / Screenshots</a>
+          </div>
+        </article>
 
-<div class="project">
-<h3>Electric Vehicle Data Analysis</h3>
-<p>Exploratory data analysis of EV adoption trends.</p>
-<p><strong>Technologies:</strong> Python, Data Visualization</p>
-<a class="button" href="https://github.com/utkarsh-data-enthusiast" target="_blank">View on GitHub</a>
-</div>
+        <!-- Project 4 -->
+        <article class="project">
+          <h3>CIFAR-10 Image Classification</h3>
+          <p class="muted">Deep learning model trained on CIFAR-10 to demonstrate practical application of CNNs for image classification.</p>
+          <p class="meta"><strong>Tech:</strong> Python • Deep Learning • CNNs</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn" href="https://github.com/utkarsh-data-enthusiast" target="_blank" rel="noopener">View on GitHub</a>
+            <a class="btn ghost" href="#" target="_blank" rel="noopener">Model results</a>
+          </div>
+        </article>
+      </div>
 
-<div class="project">
-<h3>CIFAR-10 Image Classification</h3>
-<p>Deep learning model for image classification.</p>
-<p><strong>Technologies:</strong> Python, Deep Learning</p>
-<a class="button" href="https://github.com/utkarsh-data-enthusiast" target="_blank">View on GitHub</a>
-</div>
+      <p class="muted spaced center">Tip: Replace each project's GitHub & demo links with the exact repo/visual URL so reviewers land straight on the work.</p>
+    </section>
 
-</section>
+    <!-- GITHUB -->
+    <section id="github" aria-labelledby="github-title">
+      <h2 id="github-title" class="section-title">GitHub</h2>
+      <div class="card center">
+        <p style="margin:0 0 8px">Explore complete code, notebooks, and experiments on my GitHub.</p>
+        <a class="btn" href="https://github.com/utkarsh-data-enthusiast" target="_blank" rel="noopener">Visit GitHub Profile</a>
+      </div>
+    </section>
 
-<section id="github">
+    <!-- RESUME -->
+    <section id="resume" aria-labelledby="resume-title">
+      <h2 id="resume-title" class="section-title">Resume</h2>
+      <div class="card center">
+        <p style="margin:0 0 12px">Download a PDF copy of my resume (upload <code class="inline">resume.pdf</code> to this repository to enable the button).</p>
+        <!-- Replace href with the actual uploaded resume filename: /resume.pdf -->
+        <a class="btn" href="/resume.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a>
+      </div>
+    </section>
 
-<h2>GitHub Profile</h2>
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="section-title">Contact</h2>
+      <div class="card">
+        <p style="margin:0"><strong>Email</strong></p>
+        <p class="muted" style="margin:6px 0 12px"><a href="mailto:utk108@icloud.com">utk108@icloud.com</a></p>
 
-<p>
-You can explore my complete work and repositories on GitHub.
-</p>
+        <p style="margin:0"><strong>LinkedIn</strong></p>
+        <p class="muted" style="margin:6px 0 12px">Add your LinkedIn URL here</p>
 
-<a class="button" href="https://github.com/utkarsh-data-enthusiast" target="_blank">Visit GitHub Profile</a>
+        <p style="margin:0"><strong>Phone (optional)</strong></p>
+        <p class="muted" style="margin:6px 0 0">Add number if you want to share it</p>
+      </div>
+    </section>
 
-</section>
+  </main>
 
-<section id="resume">
+  <footer>
+    <div class="wrap">
+      <p>© 2026 Utkarsh Anand · Data Analyst</p>
+    </div>
+  </footer>
 
-<h2>Resume</h2>
-
-<p>You can download my resume below.</p>
-
-<a class="button" href="#" target="_blank">Download Resume</a>
-
-</section>
-
-<section id="contact">
-
-<h2>Contact Information</h2>
-
-<p><strong>Email:</strong> utkarshanand@example.com</p>
-
-<p><strong>GitHub:</strong> https://github.com/utkarsh-data-enthusiast</p>
-
-<p><strong>LinkedIn:</strong> https://linkedin.com/in/utkarsh-data-enthusiast</p>
-
-</section>
-
-<footer>
-
-<p>© 2026 Utkarsh Anand</p>
-
-</footer>
+  <!--
+    NOTES FOR YOU (delete comments if you like):
+    1) Replace each project button's href with the exact repository URL for that project.
+    2) Upload your resume as "resume.pdf" to the repository root to make the Download Resume button work.
+    3) Replace the LinkedIn placeholder with your profile URL.
+    4) If you want screenshots for projects, add them inside each project's <article> as an <img> tag (keep them small).
+    5) To make the site URL professional, rename the Netlify site (Site settings → Site information → Site name).
+  -->
 
 </body>
 </html>
